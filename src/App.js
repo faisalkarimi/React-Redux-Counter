@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import CounterCTX from './components/CounterUseContext';
+import { CounterProvider } from './context/CounterState';
+import CounterUseState from './components/CounterUseState';
+import CounterRedux from './components/CounterRedux';
 
 function App() {
   return (
-    <div className="App">
+    <CounterProvider>
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <CounterRedux name="Redux Counter" />
+        <CounterCTX name="useContext Counter" />
+        <CounterUseState name="useState Counter" />
       </header>
-    </div>
+
+      </div>
+    </CounterProvider>
   );
 }
 
